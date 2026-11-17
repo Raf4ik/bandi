@@ -51,6 +51,12 @@ class Store:
                                   (user_id, amount_minor, 'RUB'))
             return cur.lastrowid
 
+    def intent_history(self, user_id: int):
+        return self.db.execute(
+            "SELECT id,amount_minor,created_at FROM donation_intents "
+            "WHERE telegram_id=? ORDER BY id DESC LIMIT 10", (user_id,)
+        ).fetchall()
+
     def leaderboard(self):
         # No verified provider events/ledger are implemented: never invent totals.
         return []
