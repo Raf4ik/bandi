@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bandi"
+version = "0.1.0"
+description = "Early Telegram donation bot prototype; payments are not implemented"
+requires-python = ">=3.11"
+dependencies = ["aiogram>=3.21,<4"]
+
+[tool.setuptools.packages.find]
+include = ["donation_bot*"]
